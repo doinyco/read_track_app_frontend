@@ -1,0 +1,79 @@
+.library-page {
+
+    min-height:100vh;
+
+    padding:40px;
+
+    background:#17120F;
+
+    color:#F5E6D3;
+
+    font-family:Arial, sans-serif;
+
+}
+
+.library-page h1 {
+
+    font-size:36px;
+
+    margin-bottom:30px;
+
+}
+
+/* Tabs */
+
+.library-tabs {
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:40px;
+
+}
+
+.library-tabs button {
+
+    background:#2A1F1A;
+
+    color:#F5E6D3;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:25px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+.library-tabs button:hover {
+
+    background:#3A2921;
+
+}
+
+
+.library-tabs .active-tab {
+
+    background:#8B5E3C;
+
+    color:white;
+
+}
+
+
+/* Books container */
+
+.library-books {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
