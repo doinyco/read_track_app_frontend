@@ -1,6 +1,7 @@
 import { useState } from "react";
 import api from "../api/axios";
 import { useNavigate } from "react-router-dom";
+import "./Auth.css";
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -16,8 +17,6 @@ function Login() {
                 password
             });
 
-            console.log(response.data);
-
             navigate("/dashboard");
         } catch(error){
 
@@ -28,29 +27,52 @@ function Login() {
     };
 
     return (
-        <div>
-            <h1>Login</h1>
-            <form onSubmit={handleLogin}>
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    required
-                    onChange={(e)=>setUsername(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    required
-                    onChange={(e)=>setPassword(e.target.value)}
-                />
-                <button type="submit">
+        <div className="auth-page">
+
+            <div className="auth-card">
+
+                <h1>
+                    📚 Read Track
+                </h1>
+
+                <h2>
                     Login
-                </button>
-            </form>
+                </h2>
+
+                <form onSubmit={handleLogin}>
+
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        value={username}
+                        required
+                        onChange={(e)=>setUsername(e.target.value)}
+                    />
+
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        required
+                        onChange={(e)=>setPassword(e.target.value)}
+                    />
+
+                    <button type="submit">
+                        Login
+                    </button>
+
+                    </form>
+
+
+                <p className="auth-link">
+                    Don't have an account?
+                    <span onClick={() => navigate("/register")}>
+                        {" "}Register
+                    </span>
+                </p>
+            </div>
         </div>
-    )
+    );
 }
 
 export default Login;
