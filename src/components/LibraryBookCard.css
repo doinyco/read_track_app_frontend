@@ -30,9 +30,6 @@
     border-radius:12px;
 
 }
-
-
-
 .book-info h2 {
 
     margin-top:0;
@@ -48,8 +45,6 @@
     color:#BFA58A;
 
 }
-
-
 
 .badge {
 
@@ -67,10 +62,6 @@
 
 }
 
-
-
-
-
 .book-info input {
 
     background:#17120F;
@@ -86,10 +77,6 @@
     width:120px;
 
 }
-
-
-
-
 
 /* Buttons */
 
@@ -129,7 +116,6 @@
 
 }
 
-
 .button-group button {
 
     background:#A87852;
@@ -138,14 +124,11 @@
 
 }
 
-
-
 .button-group button:hover {
 
     background:#C08A5A;
 
 }
-
 
 .delete-button {
 
@@ -160,5 +143,60 @@
 .delete-button:hover {
 
     background:#965A4E;
+
+}
+
+/* ===============================
+   Reading Progress
+================================ */
+
+
+.reading-progress {
+
+    margin:15px 0;
+
+    width:100%;
+
+}
+
+.progress-info {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:#BFA58A;
+
+    font-size:14px;
+
+    margin-bottom:10px;
+
+}
+
+.progress-bar {
+
+    width:100%;
+
+    height:12px;
+
+    background:#3A2920;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.progress-fill {
+
+    height:100%;
+
+    background:#A87852;
+
+    border-radius:20px;
+
+    transition:width .4s ease;
 
 }

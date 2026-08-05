@@ -1,14 +1,20 @@
-
 import { useEffect, useState } from "react";
 import api from "../api/axios";
 import "./Dashboard.css";
 import Sidebar from "./Sidebar";
 
-
 function Dashboard() {
 
     const [dashboard, setDashboard] = useState(null);
     const [error, setError] = useState("");
+
+    const [yearlyGoal, setYearlyGoal] = useState(
+        localStorage.getItem("readingGoal") || ""
+    );
+
+    const [goalInput, setGoalInput] = useState("");
+
+
 
     const loadDashboard = async () => {
 
@@ -27,92 +33,122 @@ function Dashboard() {
         }
 
     };
-    useEffect(() => {
 
+    useEffect(() => {
 
         loadDashboard();
 
-
     }, []);
+
+    const saveGoal = () => {
+
+        if (!goalInput || Number(goalInput) <= 0) {
+
+            return;
+
+        }
+
+        localStorage.setItem(
+            "readingGoal",
+            goalInput
+        );
+
+
+        setYearlyGoal(goalInput);
+
+        setGoalInput("");
+
+    };
+
+
+    const changeGoal = () => {
+
+        localStorage.removeItem(
+            "readingGoal"
+        );
+
+
+        setYearlyGoal("");
+
+        setGoalInput("");
+
+    };
+
+
+
 
     if(error) {
 
-
         return <h2>{error}</h2>;
 
-
     }
+
+
 
     if(!dashboard) {
 
-
         return <h2>Loading...</h2>;
-
 
     }
 
-    return (
+    const today = new Date();
 
+
+    const greeting =
+
+        today.getHours() < 12
+
+        ? "Good Morning"
+
+        : today.getHours() < 18
+
+        ? "Good Afternoon"
+
+        : "Good Evening";
+
+    const formattedDate = today.toLocaleDateString(
+        "en-US",
+        {
+            weekday:"long",
+            month:"long",
+            day:"numeric"
+        }
+    );
+
+    const completedBooks = dashboard.stats.books_read;
+
+    const goalPercentage = yearlyGoal
+
+        ? Math.min(
+            (completedBooks / Number(yearlyGoal)) * 100,
+            100
+        )
+
+        : 0;
+
+    return (
 
         <div className="dashboard">
 
-            {/* Shared Sidebar */}
-
             <Sidebar />
-
-            {/* Main Content */}
-
 
             <main className="dashboard-content">
 
-                {/* Profile */}
-
-
-                <section className="profile">
-
-
-
-                    <div className="avatar">
-
-
-                        {
-                            dashboard.username
-                            .slice(0,2)
-                            .toUpperCase()
-                        }
-
-
-                    </div>
-
-                    <div>
-
-                        <h2>
-
-                            {dashboard.username}
-
-                        </h2>
-
-                        <p>
-
-                            avid reader
-
-                        </p>
-
-                    </div>
-
-                </section>
-
                 {/* Welcome */}
-
 
                 <section className="welcome">
 
-
                     <h1>
 
-                        Good evening, {dashboard.username}
+                        {greeting}, {dashboard.username} 
 
                     </h1>
+
+                    <p>
+
+                        {formattedDate}
+
+                    </p>
 
                     <p>
 
@@ -124,52 +160,44 @@ function Dashboard() {
 
                 {/* Statistics */}
 
-
                 <section className="stats-container">
 
                     <div className="stat-card">
 
-                      <h3>
-
+                        <h3>
                             Books Read
-
                         </h3>
 
-                        <h1>
 
+                        <h1>
                             {dashboard.stats.books_read}
-
                         </h1>
 
-                        <p>
 
+                        <p>
                             all time
-
                         </p>
+
 
                     </div>
 
                     <div className="stat-card">
 
-                        <h3>
 
+                        <h3>
                             Currently Reading
-
                         </h3>
 
+
                         <h1>
-
                             {dashboard.stats.currently_reading}
-
                         </h1>
 
 
-
                         <p>
-
                             books
-
                         </p>
+
 
                     </div>
 
@@ -177,32 +205,150 @@ function Dashboard() {
 
 
                         <h3>
-
                             Wishlist
-
                         </h3>
 
+
                         <h1>
-
                             {dashboard.stats.want_to_read}
-
                         </h1>
 
 
-
                         <p>
-
                             books
-
                         </p>
-
 
 
                     </div>
 
                 </section>
 
-                {/* Book Preview */}
+                {/* Reading Goal */}
+
+                <section className="goal-card">
+
+                    <div className="goal-header">
+
+
+                        <h2>
+
+                            Reading Goal for 2026
+
+                        </h2>
+
+                    </div>
+
+                    {
+
+                        !yearlyGoal ? (
+
+
+
+                            <div>
+
+
+                                <h3>
+                                    Set your reading goal
+                                </h3>
+
+
+
+                                <input
+
+                                    type="text"
+
+                                    placeholder="Number of books"
+
+                                    value={goalInput}
+
+                                    onChange={(e)=>
+                                        setGoalInput(e.target.value)
+                                    }
+
+                                />
+
+
+
+                                <button
+                                    onClick={saveGoal}
+                                >
+
+                                    Save Goal
+
+                                </button>
+
+
+
+                            </div>
+
+                        ) : (
+
+                            <>
+                                <h3>
+
+                                    {completedBooks} of {yearlyGoal} Books Completed
+
+                                </h3>
+
+                                <p className="goal-percentage">
+
+                                    {Math.round(goalPercentage)}% completed
+
+                                </p>
+
+                                <div className="goal-progress">
+
+
+                                    <div
+
+                                        className="goal-progress-fill"
+
+                                        style={{
+                                            width:`${goalPercentage}%`
+                                        }}
+
+                                    >
+
+                                    </div>
+
+                                </div>
+
+
+                                <p>
+
+                                    {
+
+                                        Number(yearlyGoal) - completedBooks > 0
+
+                                        ?
+
+                                        `${Number(yearlyGoal) - completedBooks} books left to reach your goal.`
+
+                                        :
+
+                                        "🎉 Goal completed!"
+
+                                    }
+
+
+                                </p>
+
+                                <button
+                                    onClick={changeGoal}
+                                >
+
+                                    Change Goal
+
+                                </button>
+
+                            </>
+
+                        )
+
+                    }
+
+                </section>
+
 
                 <BookSection
 
@@ -231,27 +377,17 @@ function Dashboard() {
             </main>
 
         </div>
+
     );
 
 }
 
 
-
-
-
-
-
-
-
 function BookSection({title, books}) {
-
 
     return (
 
-
         <section className="book-section">
-
-
 
             <h2>
 
@@ -259,18 +395,11 @@ function BookSection({title, books}) {
 
             </h2>
 
-
-
-
-
             <div className="book-grid">
-
-
 
                 {
 
                     books.map((book)=>(
-
 
 
                         <div
@@ -281,13 +410,9 @@ function BookSection({title, books}) {
 
                         >
 
-
-
-
                             {
 
                                 book.cover_image_url && (
-
 
                                     <img
 
@@ -300,13 +425,7 @@ function BookSection({title, books}) {
 
                                 )
 
-
                             }
-
-
-
-
-
 
                             <h3>
 
@@ -314,37 +433,21 @@ function BookSection({title, books}) {
 
                             </h3>
 
-
-
-
-
-
                             <p>
 
                                 {book.author}
 
                             </p>
 
-
-
-
                         </div>
-
-
 
                     ))
 
-
                 }
-
-
 
             </div>
 
-
-
         </section>
-
 
     );
 

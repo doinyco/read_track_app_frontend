@@ -5,9 +5,7 @@ import LibraryBookCard from "./LibraryBookCard";
 import Sidebar from "./Sidebar";
 import "./Library.css";
 
-
 function Library() {
-
 
     const [books, setBooks] = useState([]);
 
@@ -38,9 +36,7 @@ function Library() {
 
     useEffect(() => {
 
-
         loadLibrary();
-
 
     }, []);
 
@@ -53,7 +49,6 @@ function Library() {
     );
 
     if(error) {
-
 
         return <h2>{error}</h2>;
 
@@ -72,15 +67,22 @@ function Library() {
             <main className="dashboard-content">
 
                 <div className="library-page">
-                    <h1>
-                        My Library
-                    </h1>
+                    <section className="welcome library-welcome">
+
+                        <h1>
+                            My Library 
+                         </h1>
+
+                        <p>
+                             Keep track of your reading journey and manage your books.
+                        </p>
+
+                    </section>
 
                     {/* Tabs */}
                     <div className="library-tabs">
 
                         <button
-
 
                             className={
 

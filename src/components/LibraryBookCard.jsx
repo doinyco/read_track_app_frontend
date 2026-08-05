@@ -7,6 +7,8 @@ function LibraryBookCard({ book, refresh }) {
 
     const [pages, setPages] = useState("");
     const [progress, setProgress] = useState(null);
+
+
     const loadLatestProgress = async () => {
 
         try {
@@ -14,7 +16,6 @@ function LibraryBookCard({ book, refresh }) {
             const response = await api.get(
                 `/reading-list/books/${book.reading_list_id}/progress/latest`
             );
-
 
             setProgress(response.data);
 
@@ -26,7 +27,6 @@ function LibraryBookCard({ book, refresh }) {
         }
 
     };
-
 
     useEffect(() => {
 
@@ -45,8 +45,6 @@ function LibraryBookCard({ book, refresh }) {
 
         }
 
-
-
         try {
 
 
@@ -60,19 +58,11 @@ function LibraryBookCard({ book, refresh }) {
 
             );
 
-
-
             setPages("");
-
-
 
             await loadLatestProgress();
 
-
-
             refresh();
-
-
 
         } catch(error) {
 
@@ -88,11 +78,9 @@ function LibraryBookCard({ book, refresh }) {
 
         }
 
-
     };
 
     const markComplete = async () => {
-
 
         try {
 
@@ -110,8 +98,6 @@ function LibraryBookCard({ book, refresh }) {
 
             refresh();
 
-
-
         } catch(error) {
 
 
@@ -123,11 +109,9 @@ function LibraryBookCard({ book, refresh }) {
 
         }
 
-
     };
 
     const startReading = async () => {
-
 
         try {
 
@@ -142,10 +126,7 @@ function LibraryBookCard({ book, refresh }) {
 
             );
 
-
             refresh();
-
-
 
         } catch(error) {
 
@@ -155,12 +136,9 @@ function LibraryBookCard({ book, refresh }) {
 
             alert("Could not start reading");
 
-
         }
 
-
     };
-
     const deleteBook = async () => {
 
 
@@ -175,7 +153,6 @@ function LibraryBookCard({ book, refresh }) {
 
         }
 
-
         try {
 
 
@@ -185,31 +162,21 @@ function LibraryBookCard({ book, refresh }) {
 
             );
 
-
             refresh();
-
-
 
         } catch(error) {
 
-
             console.log(error);
-
 
             alert("Could not remove book");
 
 
         }
 
-
     };
 
     return (
-
-
         <div className="library-card">
-
-
 
             {
                 book.cover_image_url && (
@@ -227,29 +194,23 @@ function LibraryBookCard({ book, refresh }) {
 
             <div className="book-info">
 
-
-
                 <h2>
                     {book.title}
                 </h2>
 
-
-
                 <p>
                     {book.author}
                 </p>
+
 
                 {
                     book.status === "want_to_read" && (
 
                         <>
 
-
                             <span className="badge">
                                 Want To Read
                             </span>
-
-
 
 
                             <div className="button-group">
@@ -260,8 +221,6 @@ function LibraryBookCard({ book, refresh }) {
                                 >
                                     Start Reading
                                 </button>
-
-
 
                                 <button
                                     className="delete-button"
@@ -283,25 +242,58 @@ function LibraryBookCard({ book, refresh }) {
                     book.status === "currently_reading" && (
 
                         <>
+
                             <span className="badge">
                                 Reading
                             </span>
 
-                            <p>
+                            {/* Reading Progress Bar */}
 
-                                Page {progress?.pages_read || 0}
+                            <div className="reading-progress">
 
-                                {" "}of{" "}
 
-                                {book.total_pages}
+                                <div className="progress-info">
 
-                            </p>
 
-                            <p>
+                                    <span>
 
-                                {progress?.percentage_completed || 0}%
+                                        Page {progress?.pages_read || 0}
 
-                            </p>
+                                        {" "}of{" "}
+
+                                        {book.total_pages}
+
+                                    </span>
+
+
+
+                                    <span>
+
+                                        {progress?.percentage_completed || 0}%
+
+                                    </span>
+
+
+                                </div>
+
+                                <div className="progress-bar">
+
+
+                                    <div
+
+                                        className="progress-fill"
+
+                                        style={{
+                                            width:`${progress?.percentage_completed || 0}%`
+                                        }}
+
+                                    >
+
+                                    </div>
+
+
+                                </div>
+                            </div>
 
                             <input
 
@@ -316,9 +308,8 @@ function LibraryBookCard({ book, refresh }) {
                                 }
 
                             />
+
                             <div className="button-group">
-
-
 
                                 <button
                                     onClick={updateProgress}
@@ -333,7 +324,6 @@ function LibraryBookCard({ book, refresh }) {
                                 </button>
 
 
-
                             </div>
 
                             <div className="button-group">
@@ -349,29 +339,21 @@ function LibraryBookCard({ book, refresh }) {
 
                             </div>
 
-
-
                         </>
 
                     )
                 }
-
 
                 {
                     book.status === "completed" && (
 
                         <>
 
-
                             <span className="badge">
                                 Completed ✓
                             </span>
 
-
-
-
                             <div className="button-group">
-
 
                                 <button
                                     className="delete-button"
@@ -389,8 +371,8 @@ function LibraryBookCard({ book, refresh }) {
                     )
                 }
 
-
             </div>
+
 
         </div>
 
@@ -398,6 +380,5 @@ function LibraryBookCard({ book, refresh }) {
     );
 
 }
-
 
 export default LibraryBookCard;

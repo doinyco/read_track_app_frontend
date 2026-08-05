@@ -1,4 +1,4 @@
-.library-page {
+/* .library-page {
 
     min-height:100vh;
 
@@ -75,5 +75,154 @@
     flex-direction:column;
 
     gap:20px;
+
+} */
+
+
+
+/* ===============================
+   Library Page
+================================ */
+
+.library-page {
+
+    min-height:100vh;
+
+    padding:40px;
+
+    background:#17120F;
+
+    color:#F5E6D3;
+
+    font-family:Arial, sans-serif;
+
+}
+
+
+/* Page Title */
+
+.library-page h1 {
+
+    font-size:32px;
+
+    font-weight:600;
+
+    color:#F5E6D3;
+
+    margin:0 0 30px;
+
+}
+
+
+
+/* ===============================
+   Tabs
+================================ */
+
+
+.library-tabs {
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.library-tabs button {
+
+    background:#2A1F1A;
+
+    color:#BFA58A;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-family:Arial, sans-serif;
+
+}
+
+
+
+.library-tabs button:hover {
+
+    background:#3A2920;
+
+    color:#F5E6D3;
+
+}
+
+
+
+.library-tabs .active-tab {
+
+    background:#A87852;
+
+    color:#F5E6D3;
+
+}
+
+
+
+/* ===============================
+   Books Container
+================================ */
+
+
+.library-books {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+/* ===============================
+   Library Book Cards
+================================ */
+
+
+.library-book-card {
+
+    background:#2A1F1A;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
+
+}
+
+.library-book-card h2 {
+
+    color:#F5E6D3;
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+
+.library-book-card p {
+
+    color:#BFA58A;
+
+    font-size:16px;
 
 }
