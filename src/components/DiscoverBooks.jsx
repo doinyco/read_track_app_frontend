@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import api from "../api/axios";
 import BookSearch from "./BookSearch";
+import Sidebar from "./Sidebar";
 import "./Dashboard.css";
-
 
 function DiscoverBooks() {
 
     const [message, setMessage] = useState("");
+
     const addBook = async (selectedBook) => {
 
         try {
@@ -31,10 +31,12 @@ function DiscoverBooks() {
 
             console.log(error);
 
+
             setMessage(
                 error.response?.data?.error ||
                 "Failed to add book"
             );
+
         }
 
     };
@@ -42,42 +44,17 @@ function DiscoverBooks() {
     return (
 
         <div className="dashboard">
-            {/* Sidebar */}
 
-            <aside className="sidebar">
-                <h1>
-                    📚 Read Track
-                </h1>
-                <nav>
-                    <Link to="/dashboard">
-                        Dashboard
-                    </Link>
+            {/* Shared Sidebar */}
 
-
-                    <Link to="/library">
-                        My Library
-                    </Link>
-
-                    <Link 
-                        className="active"
-                        to="/discover"
-                    >
-                        Discover
-                    </Link>
-
-
-                    <Link to="/progress">
-                        Progress
-                    </Link>
-
-
-                </nav>
-            </aside>
+            <Sidebar />
 
             {/* Main Content */}
 
             <main className="dashboard-content">
+
                 <section className="welcome">
+
                     <h1>
                         Discover Books
                     </h1>
@@ -87,6 +64,7 @@ function DiscoverBooks() {
                     </p>
 
                 </section>
+
                 {
                     message && (
 
@@ -100,12 +78,9 @@ function DiscoverBooks() {
                 <BookSearch
                     onAddBook={addBook}
                 />
-
             </main>
 
-
         </div>
-
     );
 
 }

@@ -1,10 +1,18 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 
 
 function Sidebar() {
 
     const location = useLocation();
+    const navigate = useNavigate();
+
+
+    const logout = () => {
+
+        navigate("/login");
+
+    };
 
 
     return (
@@ -15,7 +23,6 @@ function Sidebar() {
             <h1>
                 📚 Read Track
             </h1>
-
 
             <nav>
 
@@ -31,22 +38,6 @@ function Sidebar() {
                     Dashboard
                 </Link>
 
-
-
-                <Link
-                    className={
-                        location.pathname === "/library"
-                        ? "active"
-                        : ""
-                    }
-                    to="/library"
-                >
-                    My Library
-                </Link>
-
-
-
-
                 <Link
                     className={
                         location.pathname === "/discover"
@@ -59,11 +50,21 @@ function Sidebar() {
                 </Link>
 
                 <Link
-                    to="/login"
+                    className={
+                        location.pathname === "/library"
+                        ? "active"
+                        : ""
+                    }
+                    to="/library"
                 >
-                    Logout
+                    My Library
                 </Link>
 
+                <button
+                    onClick={logout}
+                >
+                    Logout
+                </button>
 
 
             </nav>

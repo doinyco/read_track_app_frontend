@@ -1,0 +1,211 @@
+/* =====================================
+   Discover Page
+===================================== */
+
+.message {
+
+    background:#2A1F1A;
+
+    color:#D6A06D;
+
+    padding:15px 20px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+
+    font-weight:600;
+
+}
+
+
+/* Search area */
+
+.search-container {
+
+    background:#2A1F1A;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
+
+}
+
+
+
+/* Search input */
+
+.search-container input {
+
+    width:100%;
+
+    background:#17120F;
+
+    border:1px solid #5A3A28;
+
+    color:#F5E6D3;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+
+.search-container input::placeholder {
+
+    color:#BFA58A;
+
+}
+
+
+.search-container input:focus {
+
+    border-color:#A87852;
+
+}
+
+
+
+/* Search button */
+
+.search-container button {
+
+    margin-top:15px;
+
+    background:#A87852;
+
+    color:#F5E6D3;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    font-size:15px;
+
+}
+
+
+.search-container button:hover {
+
+    background:#C08A5A;
+
+}
+
+
+
+/* Discover book cards */
+
+.discover-grid {
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fill,minmax(220px,1fr));
+
+    gap:20px;
+
+    margin-top:30px;
+
+}
+
+
+
+.discover-card {
+
+    background:#2A1F1A;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
+
+    transition:0.2s;
+
+}
+
+
+.discover-card:hover {
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.discover-card img {
+
+    width:120px;
+
+    height:170px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.discover-card h3 {
+
+    color:#F5E6D3;
+
+    margin:8px 0;
+
+}
+
+.discover-card p {
+
+    color:#BFA58A;
+
+}
+
+/* Add book button */
+
+.discover-card button {
+
+    width:100%;
+
+    margin-top:15px;
+
+    height:36px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#A87852;
+
+    color:#F5E6D3;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+.discover-card button:hover {
+
+    background:#C08A5A;
+
+}

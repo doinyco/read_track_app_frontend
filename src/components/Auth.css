@@ -1,71 +1,146 @@
+
 .auth-page {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f3f0ff;
-    font-family: Arial, sans-serif;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#17120F;
+
+    font-family:Arial, sans-serif;
+
 }
 
 .auth-card {
-    background: white;
-    width: 400px;
-    padding: 40px;
-    border-radius: 25px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+
+    background:#2A1F1A;
+
+    width:400px;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.5);
+
 }
 
 .auth-card h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    color:#F5E6D3;
+
+    font-size:30px;
+
+}
+
+.auth-card h2 {
+
+    text-align:center;
+
+    color:#F5E6D3;
+
+    margin-bottom:25px;
+
 }
 
 .auth-card form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
 }
 
 .auth-card input {
-    padding: 14px;
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    font-size: 16px;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    border:1px solid #5A3A28;
+
+    background:#17120F;
+
+    color:#F5E6D3;
+
+    font-size:16px;
+
+}
+
+.auth-card input::placeholder {
+
+    color:#BFA58A;
+
 }
 
 .auth-card input:focus {
-    outline: none;
-    border-color: #6c5ce7;
-}
 
+    outline:none;
+
+    border-color:#A87852;
+
+}
 
 .auth-card button {
-    margin-top: 10px;
-    padding: 14px;
-    border: none;
-    border-radius: 20px;
-    background: #6c5ce7;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
 
+    margin-top:10px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#A87852;
+
+    color:#F5E6D3;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
 
 .auth-card button:hover {
-    background: #5848d6;
-}
 
+    background:#C08A5A;
+
+}
 
 .auth-link {
-    text-align: center;
-    margin-top: 20px;
-    color: #666;
+
+    text-align:center;
+
+    margin-top:25px;
+
+    color:#BFA58A;
+
 }
 
-
 .auth-link span {
-    color: #6c5ce7;
-    cursor: pointer;
-    font-weight: bold;
+
+    color:#D6A06D;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+.auth-link span:hover {
+
+    color:#F5E6D3;
+
 }

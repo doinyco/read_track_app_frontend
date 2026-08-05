@@ -1,142 +1,55 @@
+
 .dashboard {
 
-    display:flex;
+    display: flex;
 
-    width:100%;
+    width: 100%;
 
-    min-height:100vh;
+    min-height: 100vh;
 
-    height:100vh;
+    background: #17120F;
 
-    background:#17120F;
-
-}
-
-/* Sidebar */
-
-.sidebar {
-
-    width:240px;
-
-    background:#2A1F1A;
-
-    padding:30px 20px;
-
-    border-right:1px solid #5A3A28;
+    font-family: Arial, sans-serif;
 
 }
 
-.sidebar h1 {
-
-    font-size:24px;
-
-    margin-bottom:40px;
-
-    color:#F5E6D3;
-}
-
-/* Navigation */
-
-.sidebar nav {
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:10px;
-}
-
-
-
-
-
-.sidebar nav a,
-.sidebar nav button {
-
-    width:100%;
-
-    padding:12px 15px;
-
-    margin:10px 0;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    color:#BFA58A;
-
-    text-decoration:none;
-
-    font-size:16px;
-
-    text-align:left;
-
-    box-sizing:border-box;
-
-}
-
-.sidebar nav button {
-
-    border:none;
-
-    background:transparent;
-
-    font-family:Arial, sans-serif;
-
-}
-
-.sidebar nav a:hover,
-.sidebar nav button:hover {
-
-    background:#3A2920;
-
-    color:#F5E6D3;
-
-}
-
-.sidebar nav a.active {
-
-    background:#A87852;
-
-    color:#F5E6D3;
-
-}
-
-/* Main content */
+/* Main Content */
 
 .dashboard-content {
 
-    flex:1;
+    flex: 1;
 
-    min-height:100vh;
+    min-height: 100vh;
 
-    padding:40px;
+    padding: 40px;
 
-    box-sizing:border-box;
+    box-sizing: border-box;
 
-    overflow-y:auto;
+    overflow-y: auto;
 
 }
 
-/* Profile */
+/* ===============================
+   Profile
+================================ */
 
 .profile {
 
-    display:flex;
+    display: flex;
 
-    align-items:center;
+    align-items: center;
 
-    gap:15px;
+    gap: 20px;
 
-    margin-bottom:30px;
+    margin-bottom: 35px;
 
 }
 
 .avatar {
 
-    width:60px;
+    width: 60px;
 
-    height:60px;
+    height: 60px;
 
     border-radius:50%;
 
@@ -160,23 +73,30 @@
 
     margin:0;
 
+    color:#F5E6D3;
+
+    font-size:24px;
+
 }
+
 
 .profile p {
 
-    margin:5px 0;
+    margin-top:8px;
 
     color:#BFA58A;
 
 }
 
-/* Welcome */
+/* ===============================
+   Welcome
+================================ */
 
 .welcome {
 
     background:#2A1F1A;
 
-    padding:30px;
+    padding:35px;
 
     border-radius:20px;
 
@@ -186,21 +106,31 @@
 
 }
 
+
 .welcome h1 {
 
-    margin-bottom:10px;
+    margin:0 0 12px;
 
     color:#F5E6D3;
 
+    font-size:32px;
+
 }
+
 
 .welcome p {
 
     color:#BFA58A;
 
+    margin:8px 0;
+
 }
 
-/* Statistics */
+
+/* ===============================
+   Statistics
+================================ */
+
 
 .stats-container {
 
@@ -214,6 +144,7 @@
 
 }
 
+
 .stat-card {
 
     background:#2A1F1A;
@@ -226,23 +157,22 @@
 
 }
 
+
 .stat-card h3 {
 
     color:#BFA58A;
 
-    font-size:16px;
-
 }
+
 
 .stat-card h1 {
 
-    font-size:40px;
-
-    margin:10px 0;
-
     color:#F5E6D3;
 
+    font-size:40px;
+
 }
+
 
 .stat-card p {
 
@@ -250,7 +180,10 @@
 
 }
 
-/* Books */
+/* ===============================
+   Books
+================================ */
+
 
 .book-section {
 
@@ -258,13 +191,15 @@
 
 }
 
-.book-section h2 {
 
-    margin-bottom:20px;
+.book-section h2 {
 
     color:#F5E6D3;
 
+    margin-bottom:20px;
+
 }
+
 
 .book-grid {
 
@@ -298,17 +233,15 @@
 
     border-radius:10px;
 
-    margin-bottom:15px;
-
 }
 
-.book-card h3 {
 
-    margin:5px 0;
+.book-card h3 {
 
     color:#F5E6D3;
 
 }
+
 
 .book-card p {
 
@@ -316,41 +249,104 @@
 
 }
 
-/* Mobile */
+/* ===============================
+   Reading Goal (UPDATED FIX)
+================================ */
+.goal-card {
+    background: #2A1F1A;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
 
-@media (max-width:800px) {
+/* Targets <h2>Reading Goal for 2026</h2> */
+.goal-card h2 {
+    color: #F5E6D3;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
 
+/* Targets <h3> inside goal card */
+.goal-card h3 {
+    color: #F5E6D3;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
 
+/* Targets standard text inside goal card */
+.goal-card p {
+    color: #BFA58A;
+    margin: 10px 0;
+}
+
+/* Optional styling for % completed text */
+.goal-percentage {
+    color: #A87852 !important;
+    font-weight: bold;
+}
+
+.goal-progress {
+    height: 14px;
+    background: #3A2920;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.goal-progress-fill {
+    height: 100%;
+    background: #A87852;
+    transition: width 0.3s ease;
+}
+
+/* Reading Goal Input */
+.goal-card input {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #5A3A28;
+    background: #F5E6D3;
+    color: #17120F;
+    font-size: 16px;
+    width: 180px;
+    margin-right: 10px;
+}
+
+.goal-card input:focus {
+    outline: none;
+    border-color: #A87852;
+}
+
+/* Reading Goal Buttons */
+.goal-card button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #A87852;
+    color: #F5E6D3;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.goal-card button:hover {
+    background: #8B5E3C;
+}
+
+/* ===============================
+   Mobile
+================================ */
+@media (max-width: 800px) {
     .dashboard {
-
-        flex-direction:column;
-
+        flex-direction: column;
     }
-
-
-
-    .sidebar {
-
-        width:auto;
-
-    }
-
-
 
     .stats-container {
-
-        grid-template-columns:1fr;
-
+        grid-template-columns: 1fr;
     }
-
-
 
     .dashboard-content {
-
-        padding:20px;
-
+        padding: 20px;
     }
-
-
-
 }
