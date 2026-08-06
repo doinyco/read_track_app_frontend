@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://16.146.146.33",
+    baseURL: "https://frigidity-retreat-gosling.ngrok-free.dev",
     withCredentials: true
 
 });
