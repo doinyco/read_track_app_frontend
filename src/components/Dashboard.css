@@ -13,8 +13,6 @@
 
 }
 
-/* Main Content */
-
 .dashboard-content {
 
     flex: 1;
@@ -28,10 +26,6 @@
     overflow-y: auto;
 
 }
-
-/* ===============================
-   Profile
-================================ */
 
 .profile {
 
@@ -88,9 +82,6 @@
 
 }
 
-/* ===============================
-   Welcome
-================================ */
 
 .welcome {
 
@@ -127,11 +118,6 @@
 }
 
 
-/* ===============================
-   Statistics
-================================ */
-
-
 .stats-container {
 
     display:grid;
@@ -159,18 +145,13 @@
 
 
 .stat-card h3 {
-
     color:#BFA58A;
-
 }
 
 
 .stat-card h1 {
-
     color:#F5E6D3;
-
     font-size:40px;
-
 }
 
 
@@ -180,15 +161,8 @@
 
 }
 
-/* ===============================
-   Books
-================================ */
-
-
 .book-section {
-
     margin-bottom:40px;
-
 }
 
 
@@ -249,9 +223,7 @@
 
 }
 
-/* ===============================
-   Reading Goal (UPDATED FIX)
-================================ */
+
 .goal-card {
     background: #2A1F1A;
     padding: 30px;
@@ -260,7 +232,6 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Targets <h2>Reading Goal for 2026</h2> */
 .goal-card h2 {
     color: #F5E6D3;
     font-size: 24px;
@@ -268,20 +239,18 @@
     margin-bottom: 15px;
 }
 
-/* Targets <h3> inside goal card */
+
 .goal-card h3 {
     color: #F5E6D3;
     font-size: 18px;
     margin-bottom: 12px;
 }
 
-/* Targets standard text inside goal card */
 .goal-card p {
     color: #BFA58A;
     margin: 10px 0;
 }
 
-/* Optional styling for % completed text */
 .goal-percentage {
     color: #A87852 !important;
     font-weight: bold;
@@ -301,7 +270,6 @@
     transition: width 0.3s ease;
 }
 
-/* Reading Goal Input */
 .goal-card input {
     padding: 12px;
     border-radius: 10px;
@@ -318,7 +286,6 @@
     border-color: #A87852;
 }
 
-/* Reading Goal Buttons */
 .goal-card button {
     padding: 12px 20px;
     border: none;
@@ -334,9 +301,6 @@
     background: #8B5E3C;
 }
 
-/* ===============================
-   Mobile
-================================ */
 @media (max-width: 800px) {
     .dashboard {
         flex-direction: column;

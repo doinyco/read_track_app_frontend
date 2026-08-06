@@ -1,6 +1,3 @@
-/* =====================================
-   Discover Page
-===================================== */
 
 .message {
 
@@ -20,9 +17,6 @@
 
 }
 
-
-/* Search area */
-
 .search-container {
 
     background:#2A1F1A;
@@ -34,10 +28,6 @@
     box-shadow:0 8px 20px rgba(0,0,0,0.4);
 
 }
-
-
-
-/* Search input */
 
 .search-container input {
 
@@ -74,9 +64,6 @@
 }
 
 
-
-/* Search button */
-
 .search-container button {
 
     margin-top:15px;
@@ -105,10 +92,6 @@
     background:#C08A5A;
 
 }
-
-
-
-/* Discover book cards */
 
 .discover-grid {
 
@@ -178,7 +161,6 @@
 
 }
 
-/* Add book button */
 
 .discover-card button {
 
