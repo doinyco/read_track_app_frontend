@@ -10,5 +10,11 @@ export default defineConfig({
       'localhost',
       '127.0.0.1'
     ]
-  }
+  },
+
+  test: {
+  globals: true,
+  environment: 'jsdom',
+  setupFiles: './src/setupTests.js',
+}
 })
