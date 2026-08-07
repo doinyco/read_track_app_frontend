@@ -4,7 +4,6 @@ import LibraryBookCard from "../components/LibraryBookCard";
 import api from "../api/axios";
 import React from "react";
 
-
 vi.mock("../api/axios", () => ({
   default: {
     get: vi.fn(),
@@ -13,7 +12,6 @@ vi.mock("../api/axios", () => ({
     delete: vi.fn(),
   },
 }));
-
 
 describe("LibraryBookCard", () => {
 
@@ -26,7 +24,6 @@ describe("LibraryBookCard", () => {
       }
     });
 
-
     const book = {
       reading_list_id: 1,
       title: "Atomic Habits",
@@ -36,7 +33,6 @@ describe("LibraryBookCard", () => {
       cover_image_url: "cover.jpg"
     };
 
-
     render(
       <LibraryBookCard 
         book={book}
@@ -44,19 +40,15 @@ describe("LibraryBookCard", () => {
       />
     );
 
-
     expect(
       screen.getByText("Atomic Habits")
     ).toBeInTheDocument();
-
 
     expect(
       screen.getByText("James Clear")
     ).toBeInTheDocument();
 
-
     await waitFor(() => {
-
       expect(
         screen.getByText(/Page 50 of 200/)
       ).toBeInTheDocument();

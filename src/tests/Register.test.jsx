@@ -12,9 +12,7 @@ vi.mock("../api/axios", () => ({
   },
 }));
 
-
 describe("Register", () => {
-
   test("renders register form", () => {
 
     render(
@@ -23,34 +21,27 @@ describe("Register", () => {
       </MemoryRouter>
     );
 
-
     expect(
       screen.getByText("Create Account")
     ).toBeInTheDocument();
-
 
     expect(
       screen.getByPlaceholderText("Username")
     ).toBeInTheDocument();
 
-
     expect(
       screen.getByPlaceholderText("Email")
     ).toBeInTheDocument();
 
-
     expect(
       screen.getByPlaceholderText("Password")
     ).toBeInTheDocument();
-
 
     expect(
       screen.getByRole("button", { name: /register/i })
     ).toBeInTheDocument();
 
   });
-
-
 
   test("submits registration data", async () => {
 
@@ -60,13 +51,11 @@ describe("Register", () => {
       }
     });
 
-
     render(
       <MemoryRouter>
         <Register />
       </MemoryRouter>
     );
-
 
     fireEvent.change(
       screen.getByPlaceholderText("Username"),
@@ -77,7 +66,6 @@ describe("Register", () => {
       }
     );
 
-
     fireEvent.change(
       screen.getByPlaceholderText("Email"),
       {
@@ -86,7 +74,6 @@ describe("Register", () => {
         }
       }
     );
-
 
     fireEvent.change(
       screen.getByPlaceholderText("Password"),
@@ -101,7 +88,6 @@ describe("Register", () => {
     fireEvent.click(
       screen.getByRole("button", { name: /register/i })
     );
-
 
     await waitFor(() => {
 

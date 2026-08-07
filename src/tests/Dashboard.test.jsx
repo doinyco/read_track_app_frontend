@@ -11,11 +11,9 @@ vi.mock("../api/axios", () => ({
   },
 }));
 
-
 vi.mock("../components/Sidebar", () => ({
   default: () => <div>Sidebar</div>,
 }));
-
 
 describe("Dashboard", () => {
 
@@ -37,14 +35,11 @@ describe("Dashboard", () => {
       }
     });
 
-
     render(<Dashboard />);
-
 
     expect(
       screen.getByText("Loading...")
     ).toBeInTheDocument();
-
 
     await waitFor(() => {
 
@@ -54,11 +49,9 @@ describe("Dashboard", () => {
 
     });
 
-
     expect(
       screen.getByText("Books Read")
     ).toBeInTheDocument();
-
 
     expect(
       screen.getByText("10")

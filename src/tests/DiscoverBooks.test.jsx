@@ -4,18 +4,15 @@ import { describe, test, expect, vi } from "vitest";
 import DiscoverBooks from "../components/DiscoverBooks";
 import api from "../api/axios";
 
-
 vi.mock("../api/axios", () => ({
   default: {
     post: vi.fn(),
   },
 }));
 
-
 vi.mock("../components/Sidebar", () => ({
   default: () => <div>Sidebar</div>,
 }));
-
 
 vi.mock("../components/BookSearch", () => ({
   default: ({ onAddBook }) => (
@@ -37,18 +34,14 @@ vi.mock("../components/BookSearch", () => ({
   ),
 }));
 
-
 describe("DiscoverBooks", () => {
 
   test("renders discover books page", () => {
-
     render(<DiscoverBooks />);
-
 
     expect(
       screen.getByText("Discover Books")
     ).toBeInTheDocument();
-
 
     expect(
       screen.getByText(
@@ -58,21 +51,17 @@ describe("DiscoverBooks", () => {
 
   });
 
-
   test("adds a book and shows success message", async () => {
 
     api.post.mockResolvedValue({
       data: {}
     });
 
-
     render(<DiscoverBooks />);
-
 
     fireEvent.click(
       screen.getByText("Add Book")
     );
-
 
     await waitFor(() => {
 
@@ -83,7 +72,6 @@ describe("DiscoverBooks", () => {
       ).toBeInTheDocument();
 
     });
-
 
     expect(api.post)
       .toHaveBeenCalledWith(
